@@ -1,0 +1,54 @@
+# History and debug files
+history.jsonl
+debug/
+shell-snapshots/
+todos/
+file-history/
+session-env/
+telemetry/
+projects/
+plans/
+cache/
+downloads/
+paste-cache/
+statsig/
+output-styles/
+ide/
+temp/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Plugin cache (we only want custom configs)
+plugins/cache/
+plugins/marketplaces/
+
+# Environment files
+envs/.local/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Skill data (may contain auth/tokens)
+skills/**/data/
+skills/**/browser_state/
+
+# Spec workflow cache
+.spec-workflow/
+
+.claude/
