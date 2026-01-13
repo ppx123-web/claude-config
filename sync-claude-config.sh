@@ -22,6 +22,12 @@ SOURCE_FILES=(
     "CLAUDE.md"
 )
 
+# Files to copy (settings.json excluded for privacy)
+SKIP_FILES=(
+    "settings.json"
+    "settings.local.json"
+)
+
 # Current working directory (destination)
 DEST_DIR="$(pwd)"
 
@@ -68,29 +74,7 @@ for file in "${SOURCE_FILES[@]}"; do
     fi
 done
 
-# Step 3: Copy and mask settings.json
-echo ""
-echo -e "${YELLOW}Processing settings.json...${NC}"
-SETTINGS_SRC="$CLAUDE_DIR/settings.json"
-SETTINGS_DEST="$DEST_DIR/settings.json"
-
-if [ -f "$SETTINGS_SRC" ]; then
-    echo "  Copying settings.json (with masked API keys)"
-    mask_api_keys "$SETTINGS_SRC" "$SETTINGS_DEST"
-else
-    echo -e "  ${RED}Warning: $SETTINGS_SRC not found${NC}"
-fi
-
-# Also check for settings.local.json
-SETTINGS_LOCAL_SRC="$CLAUDE_DIR/settings.local.json"
-SETTINGS_LOCAL_DEST="$DEST_DIR/settings.local.json"
-
-if [ -f "$SETTINGS_LOCAL_SRC" ]; then
-    echo "  Copying settings.local.json (with masked API keys)"
-    mask_api_keys "$SETTINGS_LOCAL_SRC" "$SETTINGS_LOCAL_DEST"
-fi
-
-# Step 3.5: Extract MCP servers from ~/.claude.json
+# Step 3: Extract MCP servers from ~/.claude.json
 echo ""
 echo -e "${YELLOW}Extracting MCP servers config...${NC}"
 MCP_DEST="$DEST_DIR/mcp-servers.json"

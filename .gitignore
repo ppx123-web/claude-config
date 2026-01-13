@@ -51,4 +51,8 @@ skills/**/browser_state/
 # Spec workflow cache
 .spec-workflow/
 
+# Claude settings (contains API keys)
+settings.json
+settings.local.json
+
 .claude/

@@ -8,12 +8,16 @@ This repository contains my personal Claude Code configuration files, synced fro
 - **`skills/`** - Custom skills
 - **`commands/`** - Slash commands
 - **`agents/`** - Custom subagents
-- **`settings.json`** - Claude Code settings (API keys masked)
+- **`mcp-servers.json`** - MCP server configuration (API keys masked)
 
 ## API Keys
 
-All sensitive API keys and tokens in `settings.json` are masked with `***MASKED***`.
-You'll need to update these with your own values.
+All sensitive API keys, tokens, and file paths in `mcp-servers.json` are masked with `***MASKED***`.
+You'll need to update these with your own values if you use this configuration.
+
+## Excluded Files
+
+- `settings.json` and `settings.local.json` are excluded as they contain sensitive personal data
 
 ## Syncing
 
