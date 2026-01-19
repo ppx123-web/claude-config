@@ -142,35 +142,12 @@ Every NotebookLM answer ends with: **"EXTREMELY IMPORTANT: Is that ALL you need 
 
 ## Script Reference
 
-### Authentication Management (`auth_manager.py`)
-```bash
-python scripts/run.py auth_manager.py setup    # Initial setup (browser visible)
-python scripts/run.py auth_manager.py status   # Check authentication
-python scripts/run.py auth_manager.py reauth   # Re-authenticate (browser visible)
-python scripts/run.py auth_manager.py clear    # Clear authentication
-```
-
-### Notebook Management (`notebook_manager.py`)
-```bash
-python scripts/run.py notebook_manager.py add --url URL --name NAME --description DESC --topics TOPICS
-python scripts/run.py notebook_manager.py list
-python scripts/run.py notebook_manager.py search --query QUERY
-python scripts/run.py notebook_manager.py activate --id ID
-python scripts/run.py notebook_manager.py remove --id ID
-python scripts/run.py notebook_manager.py stats
-```
-
-### Question Interface (`ask_question.py`)
-```bash
-python scripts/run.py ask_question.py --question "..." [--notebook-id ID] [--notebook-url URL] [--show-browser]
-```
-
-### Data Cleanup (`cleanup_manager.py`)
-```bash
-python scripts/run.py cleanup_manager.py                    # Preview cleanup
-python scripts/run.py cleanup_manager.py --confirm          # Execute cleanup
-python scripts/run.py cleanup_manager.py --preserve-library # Keep notebooks
-```
+See `references/api-reference.md` for complete script documentation:
+- Authentication management commands
+- Notebook management operations
+- Question interface parameters
+- Data cleanup utilities
+- Environment configuration
 
 ## Environment Management
 
@@ -255,15 +232,19 @@ Synthesize and respond to user
 - Manual upload required (user must add docs to NotebookLM)
 - Browser overhead (few seconds per question)
 
-## Resources (Skill Structure)
+## Resources
 
 **Important directories and files:**
 
-- `scripts/` - All automation scripts (ask_question.py, notebook_manager.py, etc.)
-- `data/` - Local storage for authentication and notebook library
+- `scripts/` - All automation scripts
+- `data/` - Local storage for auth and library
 - `references/` - Extended documentation:
-  - `api_reference.md` - Detailed API documentation for all scripts
+  - `api-reference.md` - Complete script documentation
   - `troubleshooting.md` - Common issues and solutions
-  - `usage_patterns.md` - Best practices and workflow examples
-- `.venv/` - Isolated Python environment (auto-created on first run)
-- `.gitignore` - Protects sensitive data from being committed
+  - `usage-patterns.md` - Best practices
+- `examples/` - Real-world usage scenarios:
+  - `basic-query.md` - Simple documentation query
+  - `smart-discovery.md` - Adding new notebooks
+  - `follow-up-questions.md` - Deep dive with follow-ups
+- `.venv/` - Isolated Python environment (auto-created)
+- `.gitignore` - Protects sensitive data

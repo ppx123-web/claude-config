@@ -104,3 +104,21 @@ GPT-5 suggests these style categories:
 - OPENROUTER_API_KEY environment variable must be set
 - Photo must be JPG or PNG format
 - Photo under 50MB recommended
+
+## Technical Implementation
+
+See `references/implementation.md` for:
+- GPT-5 text API integration
+- Photo analysis algorithms
+- Color enhancement styles
+- Prompt matching strategy
+
+## Examples
+
+See `examples/common-use-cases.md` for:
+- Vivid color enhancement
+- Natural subtle adjustment
+- Dramatic cinematic look
+- Fix washed out photos
+- Add warmth
+- Before/after comparisons

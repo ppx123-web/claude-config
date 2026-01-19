@@ -126,27 +126,21 @@ description: Analyze academic talk posters to discover and summarize the speaker
 [对讲者研究工作的整体评价和对本次talk的期待]
 ```
 
-## 技术实现
+## Technical Implementation
 
-### 使用的工具
+See `references/implementation.md` for:
+- MCP tool integration details
+- Workflow algorithms
+- Error handling strategies
+- Search strategies and data sources
 
-1. **图像分析**: `mcp__4_5v_mcp__analyze_image` - 提取海报中的文字信息
-2. **网络搜索**: `mcp__web-search-prime__webSearchPrime` - 搜索论文和信息
-3. **网页抓取**: `mcp__web_reader__webReader` - 获取论文摘要和详情
+## Examples
 
-### 搜索策略
-
-- **主要搜索词**: `[讲者姓名] [主题关键词] paper`
-- **备用搜索**: `[讲者姓名] [所属机构] publications`
-- **精确搜索**: `"[讲者姓名]" [主题] arXiv/paper`
-- **时间过滤**: 优先搜索最近1-3年的论文
-
-### 数据来源
-
-- 学术搜索引擎 (Google Scholar, arXiv, DBLP)
-- 大学/研究机构官网
-- 讲者个人主页
-- 学术社交网络 (ResearchGate, LinkedIn)
+See `examples/real-scenarios.md` for:
+- Conference talk preparation
+- Academic lecture analysis
+- New area exploration
+- Multi-speaker session analysis
 
 ## 最佳实践
 

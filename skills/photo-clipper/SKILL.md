@@ -88,3 +88,20 @@ Remove 10% from all edges for a cleaner frame
 - OPENROUTER_API_KEY environment variable must be set
 - Photo must be JPG or PNG format
 - Photo under 50MB recommended
+
+## Technical Implementation
+
+See `references/implementation.md` for:
+- GPT-5 vision API integration
+- Cropping algorithm details
+- Error handling strategy
+- Performance optimization
+
+## Examples
+
+See `examples/common-use-cases.md` for:
+- Remove empty sky
+- Focus on subject
+- Remove distractions
+- Improve composition
+- Error handling scenarios

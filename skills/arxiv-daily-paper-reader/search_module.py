@@ -28,7 +28,7 @@ NAMESPACE = {'atom': 'http://www.w3.org/2005/Atom', 'opensearch': 'http://a9.com
 @dataclass
 class SearchQuery:
     """Represents user's search request with all filters and parameters."""
-    keywords: str
+    keywords: Optional[str] = None
     categories: List[str] = None
     date_start: Optional[datetime] = None
     date_end: Optional[datetime] = None
@@ -67,12 +67,12 @@ class SearchQuery:
                 raise ValueError(f"Invalid category: {category}")
 
         # Validate keywords
-        if self.keywords and not isinstance(self.keywords, str):
+        if self.keywords is not None and not isinstance(self.keywords, str):
             raise ValueError("keywords must be a string")
 
     def has_keywords(self) -> bool:
         """Check if query has meaningful keywords."""
-        return bool(self.keywords and self.keywords.strip())
+        return bool(self.keywords is not None and self.keywords.strip())
 
     def has_categories(self) -> bool:
         """Check if query has category filters."""
@@ -203,8 +203,8 @@ class ArxivSearchClient:
         """Build arXiv API search query string from SearchQuery object."""
         query_parts = []
 
-        # Add keyword search
-        if query.keywords:
+        # Add keyword search (only if keywords are provided)
+        if query.has_keywords():
             # Handle exact phrase matching with quotes
             processed_keywords = query.keywords.strip()
             if processed_keywords.startswith('"') and processed_keywords.endswith('"'):
@@ -422,6 +422,10 @@ class ArxivSearchClient:
         # Check for empty keywords with only filters
         if not query.has_keywords() and not query.has_categories() and not query.has_date_filter():
             warnings.append("No search criteria provided - will return recent papers")
+
+        # Check for empty keywords with categories and date (this is OK for daily fetch)
+        if not query.has_keywords() and query.has_categories() and query.has_date_filter():
+            pass  # This is a valid use case (e.g., fetch all papers from categories for a date range)
 
         return warnings
 
